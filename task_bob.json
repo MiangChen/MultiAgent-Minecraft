@@ -1,9 +1,8 @@
 {
     "name": "bob",
-
     "model": {
         "api": "openai",
-        "url": "http://192.220.36.231:8080/v1",
+        "url": "http://<your-llm-gateway>:8080/v1",
         "model": "gpt-5.5",
         "params": {
             "reasoning": {
