@@ -46,6 +46,8 @@ const t0 = events.find(e => e.type !== 'meta')?.t ?? events[0].t;
 const playable = events.filter(e =>
   ['pose', 'block', 'chat'].includes(e.type) &&
   (e.t - t0) / 1000 >= FROM_S && (e.t - t0) / 1000 <= TO_S);
+// world state before the window: block events prior to FROM get fast-applied at setup
+const preBlocks = events.filter(e => e.type === 'block' && (e.t - t0) / 1000 < FROM_S);
 const puppetNames = [...new Set(playable.filter(e => e.type === 'pose').map(e => e.name))];
 console.log(`[replay] ${playable.length} events, puppets: ${puppetNames.join(', ')}, speed x${SPEED}`);
 
@@ -118,6 +120,15 @@ director.chat('/kill @e[type=item]');
 director.chat('/time set day');
 director.chat('/weather clear');
 await sleep(1000);
+if (preBlocks.length) {
+  console.log(`[replay] fast-applying ${preBlocks.length} pre-window block events to rebuild world state at t=${FROM_S}s`);
+  for (let i = 0; i < preBlocks.length; i++) {
+    const ev = preBlocks[i];
+    director.chat(`/setblock ${ev.x} ${ev.y} ${ev.z} ${ev.to}`);
+    if (i % 25 === 24) await sleep(600); // stay under command spam limits
+  }
+  await sleep(1500);
+}
 
 const puppets = {};
 const stoppers = [];
