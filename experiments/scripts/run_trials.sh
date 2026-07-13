@@ -76,12 +76,27 @@ except Exception:
     print(-1)
 EOF
 )
+  # ground-truth conflict metric: structure blocks physically removed (observer stream)
+  TRUTH=$(python3 - "$TRACE/world_events.jsonl" <<'EOF'
+import json, sys
+STRUCT = {'stone_bricks','stone','gold_block','quartz_block','quartz_pillar','polished_andesite','polished_diorite','polished_granite','glowstone'}
+n = 0
+try:
+    for l in open(sys.argv[1]):
+        e = json.loads(l)
+        if e.get('type') == 'block' and e.get('to') == 'air' and e.get('from', '').split('[')[0] in STRUCT:
+            n += 1
+except Exception:
+    n = -1
+print(n)
+EOF
+)
   CHEAT=$(grep -ac "/give" "$TRIAL/run.log" 2>/dev/null | head -1)
   BOTHSPAWNED=$( (grep -q "andy spawned" "$TRIAL/run.log" && grep -q "bob spawned" "$TRIAL/run.log") && echo 1 || echo 0)
   RESULT=$(python3 experiments/scripts/detect_drops.py --tsv "$TRACE/scores.tsv" 2>/dev/null | head -1)
   SIZE=$(du -sh "$TRACE" | cut -f1)
   gzip -f "$TRIAL/run.log" 2>/dev/null
-  echo "trial_$(printf '%03d' "$i") $RESULT real_drops=$REALDROPS cheat_give=$CHEAT both_spawned=$BOTHSPAWNED trace_size=$SIZE" >>"$SUMMARY"
-  echo "[trials] trial $i done: $RESULT real_drops=$REALDROPS cheat_give=$CHEAT both_spawned=$BOTHSPAWNED"
+  echo "trial_$(printf '%03d' "$i") $RESULT real_drops=$REALDROPS truth_removals=$TRUTH cheat_give=$CHEAT both_spawned=$BOTHSPAWNED trace_size=$SIZE" >>"$SUMMARY"
+  echo "[trials] trial $i done: $RESULT real_drops=$REALDROPS truth_removals=$TRUTH cheat_give=$CHEAT both_spawned=$BOTHSPAWNED"
 done
 echo "[trials] ALL DONE"
