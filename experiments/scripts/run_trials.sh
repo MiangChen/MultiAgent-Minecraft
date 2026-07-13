@@ -81,12 +81,17 @@ EOF
 
   TRUTH=$(python3 - "$TRACE/world_events.jsonl" <<'EOF'
 import json, sys
+# structure removals ONLY inside the blueprint bounding box — natural terrain
+# contains native 'stone', so agents mining the environment must not count
 STRUCT = {'stone_bricks','stone','gold_block','quartz_block','quartz_pillar','polished_andesite','polished_diorite','polished_granite','glowstone'}
+X1, Y1, Z1, X2, Y2, Z2 = -348, 64, 246, -339, 69, 255
 n = 0
 try:
     for l in open(sys.argv[1]):
         e = json.loads(l)
-        if e.get('type') == 'block' and e.get('to') == 'air' and e.get('from', '').split('[')[0] in STRUCT:
+        if (e.get('type') == 'block' and e.get('to') == 'air'
+                and e.get('from', '').split('[')[0] in STRUCT
+                and X1 <= e['x'] <= X2 and Y1 <= e['y'] <= Y2 and Z1 <= e['z'] <= Z2):
             n += 1
 except Exception:
     n = -1
