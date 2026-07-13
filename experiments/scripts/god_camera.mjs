@@ -71,6 +71,15 @@ bot.once('spawn', async () => {
   worldView.listenToBot(bot);
   await worldView.init(center);
 
+  // hide staff bots and stale ghost entities (viewer never processes despawns,
+  // and the director/camera identities must not appear in footage)
+  const EXCLUDE = (arg('exclude', 'candy,watcher')).split(',').filter(Boolean);
+  const origUpdateEntity = viewer.updateEntity.bind(viewer);
+  viewer.updateEntity = (e) => {
+    if (e.type === 'player' && (!e.username || EXCLUDE.includes(e.username))) return;
+    origUpdateEntity(e);
+  };
+
   const ffmpeg = spawn('ffmpeg', [
     '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-i', 'pipe:0',
     '-c:v', 'libx264', '-preset', 'veryfast', '-pix_fmt', 'yuv420p',
