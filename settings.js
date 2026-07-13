@@ -30,6 +30,7 @@ const settings = {
     "chat_ingame": true, // bot responses are shown in minecraft chat
     "language": "en", // translate to/from this language. Supports these language names: https://cloud.google.com/translate/docs/languages
     "render_bot_view": false, // show bot's view in browser at localhost:3000, 3001...
+    "trace": false, // append agent trajectory events (commands/chat/inventory) to bots/<name>/trace.jsonl
     "record_bot_video": false, // record each bot's first-person view to bots/<name>/videos/*.mp4
     "video_fps": 12, // recording frame rate
     "video_resolution": [854, 480], // recording [width, height]

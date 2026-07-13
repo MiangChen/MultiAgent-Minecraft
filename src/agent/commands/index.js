@@ -224,7 +224,14 @@ export async function executeCommand(agent, message) {
         if (numArgs !== numParams(command))
             return `Command ${command.name} was given ${numArgs} args, but requires ${numParams(command)} args.`;
         else {
+            const t0 = Date.now();
             const result = await command.perform(agent, ...parsed.args);
+            agent.tracer?.emit('cmd', {
+                cmd: parsed.commandName,
+                args: parsed.args,
+                ms: Date.now() - t0,
+                result: typeof result === 'string' ? (result.length > 500 ? result.slice(0, 500) + '…' : result) : result,
+            });
             return result;
         }
     }

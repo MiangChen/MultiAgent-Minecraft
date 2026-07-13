@@ -13,6 +13,7 @@ import convoManager from './conversation.js';
 import { handleTranslation, handleEnglishTranslation } from '../utils/translator.js';
 import { addBrowserViewer } from './vision/browser_viewer.js';
 import { addVideoRecorder } from './vision/video_recorder.js';
+import { Tracer } from './tracer.js';
 import { serverProxy, sendOutputToServer } from './mindserver_proxy.js';
 import settings from './settings.js';
 import { Task } from './tasks/tasks.js';
@@ -112,6 +113,7 @@ export class Agent {
                 clearTimeout(spawnTimeout);
                 addBrowserViewer(this.bot, count_id);
                 this.video_recorder = addVideoRecorder(this, this.bot, this.name);
+                this.tracer = new Tracer(this);
                 console.log('Initializing vision intepreter...');
                 this.vision_interpreter = new VisionInterpreter(this, settings.allow_vision);
 
@@ -418,6 +420,7 @@ export class Agent {
         if (settings.only_chat_with.length > 0) {
             for (let username of settings.only_chat_with) {
                 this.bot.whisper(username, message);
+                this.tracer?.emit('chat_out', { to: username, text: message });
             }
         }
         else {
@@ -425,6 +428,7 @@ export class Agent {
                 speak(to_translate, this.prompter.profile.speak_model);
             }
             if (settings.chat_ingame) {this.bot.chat(message);}
+            this.tracer?.emit('chat_out', { text: message });
             sendOutputToServer(this.name, message);
         }
     }
