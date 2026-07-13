@@ -35,7 +35,8 @@ if (!TRACE) { console.error('need --trace <dir>'); process.exit(1); }
 
 // refuse to run while real agents are online (puppets reuse their names)
 try {
-  const procs = execSync("pgrep -af 'node [m]ain.js|[i]nit_agent' || true").toString().trim();
+  // only our own user's agents matter (other accounts may run their own mindcraft forks)
+  const procs = execSync("pgrep -u $(id -u) -af 'node [m]ain.js|[i]nit_agent' || true").toString().trim();
   if (procs) { console.error('[replay] refusing to start: mindcraft agents appear to be running:\n' + procs); process.exit(1); }
 } catch { }
 
@@ -128,10 +129,14 @@ for (const name of puppetNames) {
   if (FPV.includes(name)) stoppers.push(await attachFPV(puppets[name], name));
 }
 console.log('[replay] puppets online, starting playback');
+// park the director far above the arena so it stays out of every camera's frame
+// (spectator invisibility is not honored by the prismarine-viewer placeholder renderer)
+director.chat(`/tp ${DIRECTOR} ${CLEAR[0] - 40} ${CLEAR[4] + 60} ${CLEAR[2] - 40}`);
 await sleep(1500);
 
 const wall0 = Date.now();
 let done = 0, skipped = 0;
+const lastTp = {};
 for (const ev of playable) {
   const due = wall0 + (ev.t - t0 - FROM_S * 1000) / SPEED;
   const wait = due - Date.now();
@@ -141,6 +146,10 @@ for (const ev of playable) {
   if (ev.type === 'pose') {
     const b = puppets[ev.name];
     if (!b) continue;
+    // cap /tp rate at 10Hz wall-clock per puppet (speed>1 would multiply it and trip spam limits)
+    const now = Date.now();
+    if (lastTp[ev.name] && now - lastTp[ev.name] < 100) continue;
+    lastTp[ev.name] = now;
     b.chat(`/tp @s ${ev.x.toFixed(2)} ${ev.y.toFixed(2)} ${ev.z.toFixed(2)}`);
     b.look(ev.yaw, ev.pitch, true).catch(() => { });
   } else if (ev.type === 'block') {
