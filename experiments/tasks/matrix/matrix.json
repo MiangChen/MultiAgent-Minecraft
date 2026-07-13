@@ -1,0 +1,80 @@
+{
+  "site_origin": [
+    -348,
+    64,
+    246
+  ],
+  "ground_y": 63,
+  "center": [
+    -343.5,
+    64,
+    250.5
+  ],
+  "clear_region": [
+    -350,
+    63,
+    244,
+    -336,
+    70,
+    258
+  ],
+  "total_blocks": 168,
+  "groups": [
+    {
+      "group": "2a_d0",
+      "task_path": "experiments/tasks/matrix/pyr_2a_d0.json",
+      "task_id": "pyr_2a_d0",
+      "rounds": 20,
+      "profiles": [
+        "./task_andy.json",
+        "./task_bob.json"
+      ],
+      "deficit_blocks": 0
+    },
+    {
+      "group": "2a_d11",
+      "task_path": "experiments/tasks/matrix/pyr_2a_d11.json",
+      "task_id": "pyr_2a_d11",
+      "rounds": 20,
+      "profiles": [
+        "./task_andy.json",
+        "./task_bob.json"
+      ],
+      "deficit_blocks": 18
+    },
+    {
+      "group": "2a_d22",
+      "task_path": "experiments/tasks/matrix/pyr_2a_d22.json",
+      "task_id": "pyr_2a_d22",
+      "rounds": 20,
+      "profiles": [
+        "./task_andy.json",
+        "./task_bob.json"
+      ],
+      "deficit_blocks": 37
+    },
+    {
+      "group": "2a_d33",
+      "task_path": "experiments/tasks/matrix/pyr_2a_d33.json",
+      "task_id": "pyr_2a_d33",
+      "rounds": 20,
+      "profiles": [
+        "./task_andy.json",
+        "./task_bob.json"
+      ],
+      "deficit_blocks": 55
+    },
+    {
+      "group": "3a_d22",
+      "task_path": "experiments/tasks/matrix/pyr_3a_d22.json",
+      "task_id": "pyr_3a_d22",
+      "rounds": 20,
+      "profiles": [
+        "./task_andy.json",
+        "./task_bob.json",
+        "./task_candy.json"
+      ],
+      "deficit_blocks": 37
+    }
+  ]
+}
