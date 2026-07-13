@@ -82,13 +82,25 @@ bot.once('spawn', async () => {
   let frames = 0, rendering = false, backpressured = false, lastBuf = null;
   ffmpeg.stdin.on('drain', () => { backpressured = false; });
 
+  // --follow <player>: third-person follow cam at camera-offset from the player
+  const FOLLOW = process.argv.includes('--follow') ? process.argv[process.argv.indexOf('--follow') + 1] : null;
+  const OFFSET = (process.argv.includes('--offset') ? process.argv[process.argv.indexOf('--offset') + 1] : '8,7,8').split(',').map(Number);
+
   const tick = async () => {
     if (!rendering) {
       rendering = true;
       try {
-        await worldView.updatePosition(center); // keep chunk set anchored on the site
-        viewer.camera.position.set(camPos.x, camPos.y, camPos.z);
-        viewer.camera.lookAt(center.x, center.y, center.z);
+        let eye = camPos, look = center;
+        if (FOLLOW) {
+          const ent = Object.values(bot.entities).find(e => e.type === 'player' && e.username === FOLLOW);
+          if (ent) {
+            look = ent.position.offset(0, 1.2, 0);
+            eye = look.offset(OFFSET[0], OFFSET[1], OFFSET[2]);
+          }
+        }
+        await worldView.updatePosition(look); // keep chunk set anchored on the action
+        viewer.camera.position.set(eye.x, eye.y, eye.z);
+        viewer.camera.lookAt(look.x, look.y, look.z);
         viewer.update();
         renderer.render(viewer.scene, viewer.camera);
         lastBuf = canvas.toBuffer('image/jpeg');
