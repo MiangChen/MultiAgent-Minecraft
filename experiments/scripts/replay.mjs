@@ -167,6 +167,9 @@ for (const ev of playable) {
 console.log(`[replay] playback finished: ${done} events, ${skipped} skipped`);
 await sleep(2000);
 stoppers.forEach(s => s());
+// restore gamemode — it persists per player name and would silently cripple
+// the real agents on their next login (they share names with the puppets)
+for (const name of puppetNames) director.chat(`/gamemode survival ${name}`);
 await sleep(2000);
 for (const b of Object.values(puppets)) b.quit();
 director.quit();

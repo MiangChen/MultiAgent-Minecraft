@@ -22,6 +22,10 @@ bot.once('spawn', async () => {
   cmds.push('/kill @e[type=item]');
   cmds.push('/time set day');
   cmds.push('/weather clear');
+  // gamemode persists per player name — replay puppets may have left agents in
+  // adventure mode, which silently breaks normal block interaction (batch-2 incident)
+  cmds.push('/gamemode survival andy');
+  cmds.push('/gamemode survival bob');
   for (const c of cmds) await say(c);
   console.log('site cleared + terrain reset');
   bot.quit();
