@@ -1,0 +1,23 @@
+{
+  "craft_h1_pickaxe_split": {
+    "goal": "Collaborate with the other agent to craft a wooden pickaxe.",
+    "conversation": "Let's collaborate to craft a wooden pickaxe.",
+    "agent_count": 2,
+    "initial_inventory": {
+      "0": {
+        "oak_planks": 10
+      },
+      "1": {
+        "stick": 10
+      }
+    },
+    "blocked_actions": {
+      "0": [],
+      "1": []
+    },
+    "target": "wooden_pickaxe",
+    "number_of_target": 1,
+    "type": "techtree",
+    "timeout": 300
+  }
+}

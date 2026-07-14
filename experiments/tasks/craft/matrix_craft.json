@@ -1,0 +1,51 @@
+{
+  "center": [
+    -343.5,
+    64,
+    250.5
+  ],
+  "groups": [
+    {
+      "group": "h1_pickaxe_split",
+      "task_path": "experiments/tasks/craft/craft_h1_pickaxe_split.json",
+      "task_id": "craft_h1_pickaxe_split",
+      "rounds": 25,
+      "profiles": [
+        "./task_andy.json",
+        "./task_bob.json"
+      ]
+    },
+    {
+      "group": "h2_shears_roles",
+      "task_path": "experiments/tasks/craft/craft_h2_shears_roles.json",
+      "task_id": "craft_h2_shears_roles",
+      "rounds": 25,
+      "profiles": [
+        "./task_andy.json",
+        "./task_bob.json"
+      ]
+    },
+    {
+      "group": "e1_pickaxe_equal",
+      "task_path": "experiments/tasks/craft/craft_e1_pickaxe_equal.json",
+      "task_id": "craft_e1_pickaxe_equal",
+      "rounds": 25,
+      "profiles": [
+        "./task_andy.json",
+        "./task_bob.json"
+      ]
+    },
+    {
+      "group": "e2_terracotta_equal",
+      "task_path": "experiments/tasks/craft/craft_e2_terracotta_equal.json",
+      "task_id": "craft_e2_terracotta_equal",
+      "rounds": 25,
+      "profiles": [
+        "./task_andy.json",
+        "./task_bob.json"
+      ]
+    }
+  ],
+  "note": "batch D: crafting handoff (H) / equal (E) designs, 4x25 = 100 trials",
+  "blocked_preset": "crafting"
+}

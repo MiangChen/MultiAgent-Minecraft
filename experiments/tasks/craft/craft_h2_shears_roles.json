@@ -1,0 +1,27 @@
+{
+  "craft_h2_shears_roles": {
+    "goal": "Collaborate with the other agent to craft shears.",
+    "conversation": "Let's collaborate to craft shears.",
+    "agent_count": 2,
+    "initial_inventory": {
+      "0": {
+        "iron_ingot": 2
+      },
+      "1": {
+        "crafting_table": 1
+      }
+    },
+    "blocked_actions": {
+      "0": [
+        "!craftRecipe"
+      ],
+      "1": [
+        "!collectBlocks"
+      ]
+    },
+    "target": "shears",
+    "number_of_target": 1,
+    "type": "techtree",
+    "timeout": 300
+  }
+}

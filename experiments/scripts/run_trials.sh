@@ -10,13 +10,18 @@
 set -u
 REPO=$(cd "$(dirname "$0")/../.." && pwd)
 cd "$REPO"
-N=${1:?}; TASK=${2:?}; TID=${3:?}; START=${4:?}; GROUP=${5:?}; PROFILES=${6:?}; CENTER=${7:?}
+N=${1:?}; TASK=${2:?}; TID=${3:?}; START=${4:?}; GROUP=${5:?}; PROFILES=${6:?}; CENTER=${7:?}; PRESET=${8:-construction}
 SUMMARY=experiments/out/trials_summary.txt
 SERVER_DIR=/home/ubuntu/mc/mindcraft-server
 SERVER_JAR=/home/ubuntu/mc/server/paper-1.20.4-499.jar
 WORLD=arena_natural
 mkdir -p experiments/out
-BLOCKED='["!activate","!attackPlayer","!clearChat","!clearFurnace","!collectBlocks","!consume","!craftable","!discard","!endConversation","!endGoal","!equip","!followPlayer","!getBlueprint","!getBlueprintLevel","!goToBed","!help","!modes","!moveAway","!putInChest","!restart","!searchForBlock","!searchForEntity","!setMode","!stay","!stfu","!stop","!takeFromChest","!viewChest","!craftRecipe","!smeltItem"]'
+if [ "$PRESET" = "crafting" ]; then
+  # MineCollab CRAFTING list minus !entities (prompter dependency)
+  BLOCKED='["!activate","!attack","!attackPlayer","!checkBlueprint","!checkBlueprintLevel","!clearChat","!clearFurnace","!consume","!craftable","!discard","!endConversation","!endGoal","!followPlayer","!getBlueprint","!getBlueprintLevel","!goToBed","!help","!modes","!newAction","!putInChest","!restart","!searchForEntity","!setMode","!stay","!stfu","!stop","!takeFromChest","!viewChest"]'
+else
+  BLOCKED='["!activate","!attackPlayer","!clearChat","!clearFurnace","!collectBlocks","!consume","!craftable","!discard","!endConversation","!endGoal","!equip","!followPlayer","!getBlueprint","!getBlueprintLevel","!goToBed","!help","!modes","!moveAway","!putInChest","!restart","!searchForBlock","!searchForEntity","!setMode","!stay","!stfu","!stop","!takeFromChest","!viewChest","!craftRecipe","!smeltItem"]'
+fi
 
 server_pid() { pgrep -u "$(id -u)" -f "paper-1.20.4-499.jar --nogui" | head -1; }
 
@@ -98,12 +103,24 @@ except Exception:
 print(n)
 EOF
 )
+  COMPLETED=$(grep -ac "Task finished: Task successful" "$TRIAL/run.log" 2>/dev/null | head -1)
+  DUR=$(python3 - "$TRACE/world_events.jsonl" <<'PYEOF'
+import json, sys
+try:
+    lines = open(sys.argv[1]).readlines()
+    t0 = json.loads(lines[1])['t'] if len(lines) > 1 else 0
+    t1 = json.loads(lines[-1])['t']
+    print(round((t1 - t0) / 1000))
+except Exception:
+    print(-1)
+PYEOF
+)
   CHEAT=$(grep -ac "/give\|/setblock" "$TRIAL/run.log" 2>/dev/null | head -1)
   SPAWNED=$(grep -acE "^(andy|bob|candy) spawned" "$TRIAL/run.log" 2>/dev/null | head -1)
   RESULT=$(python3 experiments/scripts/detect_drops.py --tsv "$TRACE/scores.tsv" 2>/dev/null | head -1)
   SIZE=$(du -sh "$TRACE" | cut -f1)
   gzip -f "$TRIAL/run.log" 2>/dev/null
-  echo "trial_$(printf '%03d' "$i") group=$GROUP $RESULT truth_removals=$TRUTH cheat_cmds=$CHEAT spawned=$SPAWNED trace_size=$SIZE" >>"$SUMMARY"
-  echo "[trials] trial $i done: group=$GROUP $RESULT truth_removals=$TRUTH cheat_cmds=$CHEAT spawned=$SPAWNED"
+  echo "trial_$(printf '%03d' "$i") group=$GROUP $RESULT truth_removals=$TRUTH completed=$COMPLETED dur_s=$DUR cheat_cmds=$CHEAT spawned=$SPAWNED trace_size=$SIZE" >>"$SUMMARY"
+  echo "[trials] trial $i done: group=$GROUP $RESULT truth_removals=$TRUTH completed=$COMPLETED dur_s=$DUR cheat_cmds=$CHEAT spawned=$SPAWNED"
 done
 echo "[trials] GROUP $GROUP DONE"

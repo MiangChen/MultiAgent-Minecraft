@@ -11,6 +11,7 @@ SUMMARY=experiments/out/trials_summary.txt
 touch "$SUMMARY"
 
 CENTER=$(python3 -c "import json;print(','.join(str(v) for v in json.load(open('$MATRIX'))['center']))")
+PRESET=$(python3 -c "import json;print(json.load(open('$MATRIX')).get('blocked_preset','construction'))")
 NGROUPS=$(python3 -c "import json;print(len(json.load(open('$MATRIX'))['groups']))")
 
 idx=$GSTART
@@ -31,7 +32,7 @@ EOF
   fi
   START=$((idx + DONE))
   echo "[matrix] group $GROUP: running $REMAIN trials (index $START..$((START + REMAIN - 1)))"
-  bash experiments/scripts/run_trials.sh "$REMAIN" "$TASKP" "$TID" "$START" "$GROUP" "$PROFILES" "$CENTER"
+  bash experiments/scripts/run_trials.sh "$REMAIN" "$TASKP" "$TID" "$START" "$GROUP" "$PROFILES" "$CENTER" "$PRESET"
   idx=$((idx + ROUNDS))
 done
 echo "[matrix] MATRIX DONE"
