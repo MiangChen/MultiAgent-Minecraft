@@ -113,7 +113,7 @@ for l in open(args.summary):
         group_of[m.group(1)] = m.group(2)
 
 by_group = defaultdict(list)
-for tdir in sorted(glob.glob('experiments/out/trial_1[0-9][0-9]')):
+for tdir in sorted(glob.glob('experiments/out/trial_[12][0-9][0-9]')):
     name = os.path.basename(tdir)
     if name not in group_of:
         continue
