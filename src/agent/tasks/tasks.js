@@ -518,8 +518,12 @@ export class Task {
         let bot = this.agent.bot;
 
         // Finding if there is a human player on the server
+        // (skip experiment staff bots: the observer hovers mid-air — teleporting
+        // agents to it causes invalid-movement kicks)
+        const STAFF_BOTS = ['watcher', 'candy'];
         for (const playerName in bot.players) {
             const player = bot.players[playerName];
+            if (STAFF_BOTS.includes(playerName) || playerName === this.name) continue;
             if (!this.available_agents.some((n) => n === playerName)) {
                 console.log('Found human player:', player.username);
                 human_player_name = player.username
