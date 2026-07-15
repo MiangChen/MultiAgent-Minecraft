@@ -13,7 +13,7 @@ import os
 OUT = 'experiments/tasks/craft'
 os.makedirs(OUT, exist_ok=True)
 
-def task(goal, conv, inv, blocked, target, n=1, timeout=300):
+def task(goal, conv, inv, blocked, target, n=1, timeout=600):
     return {
         'goal': goal, 'conversation': conv, 'agent_count': 2,
         'initial_inventory': inv, 'blocked_actions': blocked,

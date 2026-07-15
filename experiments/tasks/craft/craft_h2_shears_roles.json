@@ -22,6 +22,6 @@
     "target": "shears",
     "number_of_target": 1,
     "type": "techtree",
-    "timeout": 300
+    "timeout": 600
   }
 }
