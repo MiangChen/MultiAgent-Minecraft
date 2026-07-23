@@ -1,0 +1,822 @@
+{
+  "schema_version": "online_critic_batch_manifest.v1",
+  "batch_id": "batch_24_v1",
+  "created_date": "2026-07-23",
+  "selection_policy": {
+    "sample_size_trials": 24,
+    "domains": {
+      "construction": 12,
+      "crafting": 12
+    },
+    "construction_outcomes": {
+      "successful": 6,
+      "unsuccessful": 6
+    },
+    "cutoff_policy": "Fixed 25%, 50%, and 75% replay-time quantiles.",
+    "cutoff_fractions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "selection_note": "Trials were fixed from pre-existing process strata before critic inference. Known labels are retained only for post-selection auditing, not prompt input."
+  },
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "trials": [
+    {
+      "trial_id": "trial_104",
+      "domain": "construction",
+      "group": "2a_d0",
+      "task_id": "pyr_2a_d0",
+      "selection_stratum": "successful_quiet_complementarity",
+      "known_process_labels_for_post_selection_audit": [
+        "whole_task_commitment_overlap",
+        "inventory_induced_implicit_specialization",
+        "quiet_action_complementarity"
+      ],
+      "run_success": true,
+      "final_score": 100,
+      "replay_end_s": 330.58,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 82.645
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 165.29
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 247.935
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_106",
+      "domain": "construction",
+      "group": "2a_d0",
+      "task_id": "pyr_2a_d0",
+      "selection_stratum": "successful_balanced_parallel_anchor",
+      "known_process_labels_for_post_selection_audit": [
+        "whole_task_commitment_overlap",
+        "balanced_parallel_execution"
+      ],
+      "run_success": true,
+      "final_score": 100,
+      "replay_end_s": 294.772,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 73.693
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 147.386
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 221.079
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_107",
+      "domain": "construction",
+      "group": "2a_d0",
+      "task_id": "pyr_2a_d0",
+      "selection_stratum": "near_complete_plateau_failure",
+      "known_process_labels_for_post_selection_audit": [
+        "whole_task_commitment_overlap",
+        "inventory_induced_implicit_specialization",
+        "quiet_action_complementarity",
+        "late_dependency_disclosure",
+        "resource_blocked_progress_plateau",
+        "plan_restatement_without_world_effect"
+      ],
+      "run_success": false,
+      "final_score": 99.40476190476191,
+      "replay_end_s": 724.382,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 181.095
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 362.191
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 543.286
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_126",
+      "domain": "construction",
+      "group": "2a_d11",
+      "task_id": "pyr_2a_d11",
+      "selection_stratum": "low_progress_resource_plateau",
+      "known_process_labels_for_post_selection_audit": [
+        "single_agent_execution_dominance",
+        "resource_blocked_progress_plateau"
+      ],
+      "run_success": false,
+      "final_score": 11.904761904761903,
+      "replay_end_s": 719.963,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 179.991
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 359.981
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 539.972
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_132",
+      "domain": "construction",
+      "group": "2a_d11",
+      "task_id": "pyr_2a_d11",
+      "selection_stratum": "resource_gap_success",
+      "known_process_labels_for_post_selection_audit": [
+        "whole_task_commitment_overlap",
+        "inventory_induced_implicit_specialization",
+        "quiet_action_complementarity",
+        "correct_world_state_loss",
+        "correct_state_restoration"
+      ],
+      "run_success": true,
+      "final_score": 100,
+      "replay_end_s": 370.571,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 92.643
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 185.286
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 277.928
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_149",
+      "domain": "construction",
+      "group": "2a_d22",
+      "task_id": "pyr_2a_d22",
+      "selection_stratum": "larger_resource_gap_success",
+      "known_process_labels_for_post_selection_audit": [
+        "whole_task_commitment_overlap",
+        "inventory_induced_implicit_specialization",
+        "quiet_action_complementarity",
+        "correct_world_state_loss",
+        "correct_state_restoration"
+      ],
+      "run_success": true,
+      "final_score": 100,
+      "replay_end_s": 695.126,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 173.781
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 347.563
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 521.344
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_158",
+      "domain": "construction",
+      "group": "2a_d22",
+      "task_id": "pyr_2a_d22",
+      "selection_stratum": "high_communication_without_completion",
+      "known_process_labels_for_post_selection_audit": [
+        "whole_task_commitment_overlap",
+        "inventory_induced_implicit_specialization",
+        "balanced_parallel_execution",
+        "unanswered_request_loop",
+        "resource_blocked_progress_plateau",
+        "plan_restatement_without_world_effect",
+        "high_communication_without_completion"
+      ],
+      "run_success": false,
+      "final_score": 73.80952380952381,
+      "replay_end_s": 719.865,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 179.966
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 359.933
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 539.899
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_162",
+      "domain": "construction",
+      "group": "2a_d33",
+      "task_id": "pyr_2a_d33",
+      "selection_stratum": "scarce_resource_success_anchor",
+      "known_process_labels_for_post_selection_audit": [
+        "whole_task_commitment_overlap",
+        "single_agent_execution_dominance",
+        "correct_world_state_loss",
+        "correct_state_restoration"
+      ],
+      "run_success": true,
+      "final_score": 100,
+      "replay_end_s": 507.022,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 126.755
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 253.511
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 380.267
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_179",
+      "domain": "construction",
+      "group": "2a_d33",
+      "task_id": "pyr_2a_d33",
+      "selection_stratum": "very_low_progress_unknown_process",
+      "known_process_labels_for_post_selection_audit": [
+        "unknown"
+      ],
+      "run_success": false,
+      "final_score": 3.571428571428571,
+      "replay_end_s": 720.072,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 180.018
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 360.036
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 540.054
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_181",
+      "domain": "construction",
+      "group": "3a_d22",
+      "task_id": "pyr_3a_d22",
+      "selection_stratum": "three_agent_balanced_failure",
+      "known_process_labels_for_post_selection_audit": [
+        "inventory_induced_implicit_specialization",
+        "balanced_parallel_execution",
+        "quiet_action_complementarity"
+      ],
+      "run_success": false,
+      "final_score": 73.80952380952381,
+      "replay_end_s": 719.926,
+      "agents": [
+        "andy",
+        "bob",
+        "candy"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 179.982
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 359.963
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 539.945
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_186",
+      "domain": "construction",
+      "group": "3a_d22",
+      "task_id": "pyr_3a_d22",
+      "selection_stratum": "three_agent_success",
+      "known_process_labels_for_post_selection_audit": [
+        "whole_task_commitment_overlap",
+        "balanced_parallel_execution"
+      ],
+      "run_success": true,
+      "final_score": 100,
+      "replay_end_s": 423.363,
+      "agents": [
+        "andy",
+        "bob",
+        "candy"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 105.841
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 211.681
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 317.522
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_190",
+      "domain": "construction",
+      "group": "3a_d22",
+      "task_id": "pyr_3a_d22",
+      "selection_stratum": "three_agent_communication_plateau",
+      "known_process_labels_for_post_selection_audit": [
+        "whole_task_commitment_overlap",
+        "inventory_induced_implicit_specialization",
+        "balanced_parallel_execution",
+        "late_dependency_disclosure",
+        "resource_blocked_progress_plateau",
+        "plan_restatement_without_world_effect"
+      ],
+      "run_success": false,
+      "final_score": 75.59523809523809,
+      "replay_end_s": 720.174,
+      "agents": [
+        "andy",
+        "bob",
+        "candy"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 180.043
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 360.087
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 540.13
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_202",
+      "domain": "crafting",
+      "group": "h1_pickaxe_split",
+      "task_id": "craft_h1_pickaxe_split",
+      "selection_stratum": "handoff_failure_then_repair",
+      "known_process_labels_for_post_selection_audit": [
+        "verified_handoff_to_completion",
+        "handoff_failure_then_repair"
+      ],
+      "run_success": true,
+      "final_score": null,
+      "replay_end_s": 134.711,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 33.678
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 67.356
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 101.033
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_208",
+      "domain": "crafting",
+      "group": "h1_pickaxe_split",
+      "task_id": "craft_h1_pickaxe_split",
+      "selection_stratum": "self_contained_terminal_mismatch",
+      "known_process_labels_for_post_selection_audit": [
+        "self_contained_task_capture",
+        "terminal_detector_process_mismatch"
+      ],
+      "run_success": false,
+      "final_score": null,
+      "replay_end_s": 599.884,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 149.971
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 299.942
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 449.913
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_212",
+      "domain": "crafting",
+      "group": "h1_pickaxe_split",
+      "task_id": "craft_h1_pickaxe_split",
+      "selection_stratum": "unanswered_request_and_resource_displacement",
+      "known_process_labels_for_post_selection_audit": [
+        "unanswered_request_loop",
+        "resource_search_displacement",
+        "late_dependency_disclosure"
+      ],
+      "run_success": false,
+      "final_score": null,
+      "replay_end_s": 600.03,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 150.007
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 300.015
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 450.022
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_229",
+      "domain": "crafting",
+      "group": "h2_shears_roles",
+      "task_id": "craft_h2_shears_roles",
+      "selection_stratum": "verified_role_handoff",
+      "known_process_labels_for_post_selection_audit": [
+        "verified_handoff_to_completion"
+      ],
+      "run_success": true,
+      "final_score": null,
+      "replay_end_s": 47.351,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 11.838
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 23.675
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 35.513
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_230",
+      "domain": "crafting",
+      "group": "h2_shears_roles",
+      "task_id": "craft_h2_shears_roles",
+      "selection_stratum": "unanswered_request_and_resource_displacement",
+      "known_process_labels_for_post_selection_audit": [
+        "unanswered_request_loop",
+        "resource_search_displacement",
+        "late_dependency_disclosure"
+      ],
+      "run_success": false,
+      "final_score": null,
+      "replay_end_s": 600.077,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 150.019
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 300.038
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 450.058
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_243",
+      "domain": "crafting",
+      "group": "h2_shears_roles",
+      "task_id": "craft_h2_shears_roles",
+      "selection_stratum": "handoff_failure_then_repair",
+      "known_process_labels_for_post_selection_audit": [
+        "verified_handoff_to_completion",
+        "handoff_failure_then_repair"
+      ],
+      "run_success": true,
+      "final_score": null,
+      "replay_end_s": 145.073,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 36.268
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 72.537
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 108.805
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_255",
+      "domain": "crafting",
+      "group": "e1_pickaxe_equal",
+      "task_id": "craft_e1_pickaxe_equal",
+      "selection_stratum": "parallel_overproduction_terminal_mismatch",
+      "known_process_labels_for_post_selection_audit": [
+        "shared_infrastructure_support",
+        "parallel_target_overproduction",
+        "terminal_detector_process_mismatch"
+      ],
+      "run_success": false,
+      "final_score": null,
+      "replay_end_s": 599.885,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 149.971
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 299.942
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 449.914
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_257",
+      "domain": "crafting",
+      "group": "e1_pickaxe_equal",
+      "task_id": "craft_e1_pickaxe_equal",
+      "selection_stratum": "self_contained_success",
+      "known_process_labels_for_post_selection_audit": [
+        "self_contained_task_capture"
+      ],
+      "run_success": true,
+      "final_score": null,
+      "replay_end_s": 33.486,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 8.371
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 16.743
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 25.114
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_258",
+      "domain": "crafting",
+      "group": "e1_pickaxe_equal",
+      "task_id": "craft_e1_pickaxe_equal",
+      "selection_stratum": "parallel_target_overproduction",
+      "known_process_labels_for_post_selection_audit": [
+        "parallel_target_overproduction"
+      ],
+      "run_success": true,
+      "final_score": null,
+      "replay_end_s": 54.072,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 13.518
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 27.036
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 40.554
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_279",
+      "domain": "crafting",
+      "group": "e2_terracotta_equal",
+      "task_id": "craft_e2_terracotta_equal",
+      "selection_stratum": "repair_and_role_reassignment",
+      "known_process_labels_for_post_selection_audit": [
+        "verified_handoff_to_completion",
+        "handoff_failure_then_repair",
+        "role_reassignment_after_execution_failure"
+      ],
+      "run_success": true,
+      "final_score": null,
+      "replay_end_s": 351.644,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 87.911
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 175.822
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 263.733
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_286",
+      "domain": "crafting",
+      "group": "e2_terracotta_equal",
+      "task_id": "craft_e2_terracotta_equal",
+      "selection_stratum": "verified_handoff",
+      "known_process_labels_for_post_selection_audit": [
+        "verified_handoff_to_completion"
+      ],
+      "run_success": true,
+      "final_score": null,
+      "replay_end_s": 44.935,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 11.234
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 22.468
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 33.701
+        }
+      ]
+    },
+    {
+      "trial_id": "trial_297",
+      "domain": "crafting",
+      "group": "e2_terracotta_equal",
+      "task_id": "craft_e2_terracotta_equal",
+      "selection_stratum": "high_communication_terminal_mismatch",
+      "known_process_labels_for_post_selection_audit": [
+        "verified_handoff_to_completion",
+        "role_reassignment_after_execution_failure",
+        "terminal_detector_process_mismatch",
+        "high_communication_without_completion"
+      ],
+      "run_success": false,
+      "final_score": null,
+      "replay_end_s": 600.038,
+      "agents": [
+        "andy",
+        "bob"
+      ],
+      "snapshots": [
+        {
+          "fraction": 0.25,
+          "cutoff_s": 150.01
+        },
+        {
+          "fraction": 0.5,
+          "cutoff_s": 300.019
+        },
+        {
+          "fraction": 0.75,
+          "cutoff_s": 450.029
+        }
+      ]
+    }
+  ]
+}

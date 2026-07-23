@@ -1,0 +1,35 @@
+{
+  "batch_id": "batch_24_v1",
+  "dry_run": false,
+  "resume": false,
+  "workers": 2,
+  "selected_trials": 2,
+  "expected_snapshots": 6,
+  "completed_snapshots": 6,
+  "failed_trials": 0,
+  "elapsed_s": 109.96,
+  "results": [
+    {
+      "trial_id": "trial_106",
+      "domain": "construction",
+      "calls": 3,
+      "skipped": 0,
+      "completed": 3,
+      "missing": [],
+      "failures": [],
+      "elapsed_s": 97.55,
+      "output": "experiments/analysis/online_critic/derived/timeline_106_162_v2/results/trial_106.jsonl"
+    },
+    {
+      "trial_id": "trial_162",
+      "domain": "construction",
+      "calls": 3,
+      "skipped": 0,
+      "completed": 3,
+      "missing": [],
+      "failures": [],
+      "elapsed_s": 109.959,
+      "output": "experiments/analysis/online_critic/derived/timeline_106_162_v2/results/trial_162.jsonl"
+    }
+  ]
+}

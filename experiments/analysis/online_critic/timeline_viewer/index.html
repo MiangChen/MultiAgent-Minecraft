@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>协作过程审计台 · Critic Timeline</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="product-mark">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <p class="eyebrow">ONLINE CRITIC · CAUSAL REPLAY</p>
+        <h1>协作过程审计台</h1>
+      </div>
+    </div>
+    <nav class="trial-tabs" id="trial-tabs" aria-label="案例"></nav>
+    <div class="mode-switch" role="tablist" aria-label="视图模式">
+      <button type="button" role="tab" data-mode="story" aria-selected="true">故事模式</button>
+      <button type="button" role="tab" data-mode="audit" aria-selected="false">审计模式</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-band" aria-labelledby="case-title">
+      <div class="case-copy">
+        <p class="case-id" id="case-id"></p>
+        <h2 id="case-title"></h2>
+        <p class="case-subtitle" id="case-subtitle"></p>
+        <p class="case-synopsis" id="case-synopsis"></p>
+        <dl class="metric-row" id="metric-row"></dl>
+        <p class="boundary-note" id="boundary-note"></p>
+      </div>
+      <div class="replay-media">
+        <video id="case-video" controls preload="metadata" playsinline></video>
+        <div class="frame-strip" id="frame-strip" aria-label="关键画面"></div>
+      </div>
+    </section>
+
+    <section class="policy-band" aria-label="Critic 触发策略">
+      <div class="policy-heading">
+        <span>CRITIC 策略</span>
+        <strong id="policy-name"></strong>
+      </div>
+      <div class="policy-switch" id="policy-switch" role="tablist" aria-label="Critic 触发策略"></div>
+      <p class="policy-description" id="policy-description"></p>
+      <div class="policy-stats" id="policy-stats" aria-live="polite"></div>
+    </section>
+
+    <section class="time-controller" aria-label="回放时间">
+      <div class="time-readout">
+        <strong id="cursor-time">00:00</strong>
+        <span id="cursor-score">进度 0%</span>
+      </div>
+      <input id="time-scrubber" type="range" min="0" step="0.1" value="0" aria-label="实验时间">
+      <span class="duration" id="duration-time"></span>
+    </section>
+
+    <section id="story-view" class="view-section" aria-label="故事模式">
+      <div class="story-overview" id="story-overview"></div>
+      <div class="phase-rail" id="phase-rail"></div>
+      <div class="story-feed" id="story-feed"></div>
+    </section>
+
+    <section id="audit-view" class="view-section" aria-label="审计模式" hidden>
+      <div class="audit-toolbar">
+        <div class="legend" aria-label="时间线图例">
+          <span class="legend-item andy">Andy</span>
+          <span class="legend-item bob">Bob</span>
+          <span class="legend-item world">世界 / 进度</span>
+          <span class="legend-item critic">Critic</span>
+        </div>
+        <label class="key-filter"><input id="key-filter" type="checkbox" checked> 仅显示关键事件</label>
+      </div>
+      <div class="audit-grid">
+        <div class="lane-labels" aria-hidden="true">
+          <div class="axis-label">时间</div>
+          <div class="phase-label">阶段</div>
+          <div class="lane-label andy">Andy</div>
+          <div class="lane-label bob">Bob</div>
+          <div class="lane-label world">世界</div>
+          <div class="lane-label critic">Critic</div>
+          <div class="score-label">得分</div>
+        </div>
+        <div class="timeline-scroll" id="timeline-scroll">
+          <div class="timeline-canvas" id="timeline-canvas"></div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="inspector" id="inspector" aria-live="polite"></aside>
+  </main>
+
+  <footer>
+    <span>证据来源：原始 trace、chronology、固定截点 v2 与事件租约 v1</span>
+    <a href="../../open_world_coordination/TRIAL_106_162_CHRONOLOGY.md">打开原始过程时间线</a>
+  </footer>
+
+  <script src="timeline_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

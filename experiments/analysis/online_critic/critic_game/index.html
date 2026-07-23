@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>协作推理剧场 · Critic Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="game-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <p>CRITIC FIELD LAB</p>
+        <h1>协作推理剧场</h1>
+      </div>
+    </div>
+    <nav class="scenario-tabs" id="scenario-tabs" aria-label="关卡"></nav>
+    <div class="scoreboard" aria-live="polite">
+      <span>审计判断</span>
+      <strong id="score-value">0 / 0</strong>
+    </div>
+  </header>
+
+  <main class="game-main">
+    <section class="mission-strip" aria-label="当前任务">
+      <div>
+        <span id="scenario-id"></span>
+        <strong id="scenario-name"></strong>
+      </div>
+      <p id="scenario-mission"></p>
+      <div class="stage-progress" id="stage-progress" aria-label="关卡进度"></div>
+    </section>
+
+    <section class="game-stage" id="game-stage" aria-live="polite">
+      <div class="scene-column">
+        <div class="scene-frame" id="scene-frame">
+          <img id="scene-image" alt="Minecraft 协作现场">
+          <video id="scene-video" controls preload="metadata" playsinline hidden></video>
+          <button type="button" class="replay-button" id="replay-button" title="回放这个时刻" aria-label="回放这个时刻">▶</button>
+          <div class="scene-caption">
+            <span id="scene-time"></span>
+            <strong id="scene-title"></strong>
+          </div>
+        </div>
+
+        <div class="world-hud">
+          <div class="world-meter">
+            <span>世界进度</span>
+            <strong id="world-score"></strong>
+            <p id="world-state"></p>
+          </div>
+          <div class="actor-hud andy">
+            <span>ANDY</span>
+            <strong id="andy-state"></strong>
+            <p id="andy-detail"></p>
+          </div>
+          <div class="actor-hud bob">
+            <span>BOB</span>
+            <strong id="bob-state"></strong>
+            <p id="bob-detail"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="decision-column">
+        <div class="stage-heading">
+          <span id="stage-label"></span>
+          <h2 id="stage-question"></h2>
+        </div>
+
+        <div class="fact-list" id="fact-list"></div>
+
+        <section class="decision-panel" aria-labelledby="decision-title">
+          <h3 id="decision-title">你的管理动作</h3>
+          <div class="choice-list" id="choice-list"></div>
+        </section>
+
+        <section class="reveal-panel" id="reveal-panel" hidden></section>
+
+        <div class="stage-actions">
+          <button type="button" class="icon-button" id="back-button" title="上一步" aria-label="上一步">←</button>
+          <span id="decision-status">等待判断</span>
+          <button type="button" class="next-button" id="next-button" disabled>继续 <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="debrief" id="debrief" hidden aria-live="polite"></section>
+  </main>
+
+  <script src="../timeline_viewer/timeline_data.js"></script>
+  <script src="game_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

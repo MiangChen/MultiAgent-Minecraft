@@ -1,0 +1,724 @@
+{
+  "batch_id": "batch_24_v1",
+  "expected_snapshots": 72,
+  "validated_snapshots": 72,
+  "errors": [],
+  "verdicts": {
+    "imbalance_detected": 44,
+    "no_imbalance_observed": 28
+  },
+  "advisories_sent": 44,
+  "snapshots_with_active_execution": 35,
+  "by_domain": {
+    "construction": {
+      "imbalance_detected": 29,
+      "no_imbalance_observed": 7
+    },
+    "crafting": {
+      "no_imbalance_observed": 21,
+      "imbalance_detected": 15
+    }
+  },
+  "by_domain_fraction": {
+    "construction|0.25": {
+      "imbalance_detected": 9,
+      "no_imbalance_observed": 3
+    },
+    "construction|0.5": {
+      "no_imbalance_observed": 4,
+      "imbalance_detected": 8
+    },
+    "construction|0.75": {
+      "imbalance_detected": 12
+    },
+    "crafting|0.25": {
+      "no_imbalance_observed": 8,
+      "imbalance_detected": 4
+    },
+    "crafting|0.5": {
+      "imbalance_detected": 6,
+      "no_imbalance_observed": 6
+    },
+    "crafting|0.75": {
+      "no_imbalance_observed": 7,
+      "imbalance_detected": 5
+    }
+  },
+  "by_domain_outcome": {
+    "construction|success=False": {
+      "imbalance_detected": 16,
+      "no_imbalance_observed": 2
+    },
+    "construction|success=True": {
+      "imbalance_detected": 13,
+      "no_imbalance_observed": 5
+    },
+    "crafting|success=False": {
+      "no_imbalance_observed": 9,
+      "imbalance_detected": 6
+    },
+    "crafting|success=True": {
+      "no_imbalance_observed": 12,
+      "imbalance_detected": 9
+    }
+  },
+  "by_active_execution": {
+    "construction|active=False": {
+      "imbalance_detected": 7
+    },
+    "construction|active=True": {
+      "imbalance_detected": 22,
+      "no_imbalance_observed": 7
+    },
+    "crafting|active=False": {
+      "no_imbalance_observed": 19,
+      "imbalance_detected": 11
+    },
+    "crafting|active=True": {
+      "imbalance_detected": 4,
+      "no_imbalance_observed": 2
+    }
+  },
+  "advisory_priorities": {
+    "rebalance": 25,
+    "none": 28,
+    "unblock": 19
+  },
+  "imbalance_types": {
+    "duplicated_scope": 19,
+    "role_action_mismatch": 19,
+    "blocked_dependency": 22,
+    "workload_concentration": 15,
+    "failed_handoff": 19,
+    "idle_while_peer_overloaded": 1
+  },
+  "mean_confidence": 0.8829,
+  "mean_confidence_by_verdict": {
+    "imbalance_detected": 0.8905,
+    "no_imbalance_observed": 0.8711
+  },
+  "trial_sequences": {
+    "trial_104": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.82,
+        "imbalance_types": [
+          "duplicated_scope",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.82,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.86,
+        "imbalance_types": [
+          "blocked_dependency"
+        ]
+      }
+    ],
+    "trial_106": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.88,
+        "imbalance_types": [
+          "blocked_dependency",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.84,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.9,
+        "imbalance_types": [
+          "duplicated_scope"
+        ]
+      }
+    ],
+    "trial_107": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.82,
+        "imbalance_types": [
+          "duplicated_scope"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.84,
+        "imbalance_types": [
+          "duplicated_scope",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.96,
+        "imbalance_types": [
+          "duplicated_scope"
+        ]
+      }
+    ],
+    "trial_126": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.9,
+        "imbalance_types": [
+          "workload_concentration",
+          "blocked_dependency",
+          "failed_handoff",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.93,
+        "imbalance_types": [
+          "workload_concentration",
+          "idle_while_peer_overloaded",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.94,
+        "imbalance_types": [
+          "workload_concentration",
+          "duplicated_scope",
+          "failed_handoff",
+          "role_action_mismatch"
+        ]
+      }
+    ],
+    "trial_132": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.83,
+        "imbalance_types": [
+          "duplicated_scope"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.84,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.86,
+        "imbalance_types": [
+          "duplicated_scope"
+        ]
+      }
+    ],
+    "trial_149": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.86,
+        "imbalance_types": [
+          "duplicated_scope",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.93,
+        "imbalance_types": [
+          "duplicated_scope"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.97,
+        "imbalance_types": [
+          "duplicated_scope"
+        ]
+      }
+    ],
+    "trial_158": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.88,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.9,
+        "imbalance_types": [
+          "blocked_dependency"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.86,
+        "imbalance_types": [
+          "blocked_dependency"
+        ]
+      }
+    ],
+    "trial_162": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.82,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.78,
+        "imbalance_types": [
+          "duplicated_scope",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.78,
+        "imbalance_types": [
+          "workload_concentration",
+          "duplicated_scope",
+          "failed_handoff"
+        ]
+      }
+    ],
+    "trial_179": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.9,
+        "imbalance_types": [
+          "workload_concentration",
+          "failed_handoff",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.91,
+        "imbalance_types": [
+          "workload_concentration",
+          "failed_handoff",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.94,
+        "imbalance_types": [
+          "workload_concentration",
+          "failed_handoff",
+          "role_action_mismatch"
+        ]
+      }
+    ],
+    "trial_181": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.88,
+        "imbalance_types": [
+          "workload_concentration",
+          "blocked_dependency",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.86,
+        "imbalance_types": [
+          "duplicated_scope",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.82,
+        "imbalance_types": [
+          "duplicated_scope"
+        ]
+      }
+    ],
+    "trial_186": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.82,
+        "imbalance_types": [
+          "workload_concentration",
+          "duplicated_scope",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.84,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.88,
+        "imbalance_types": [
+          "blocked_dependency",
+          "failed_handoff",
+          "role_action_mismatch"
+        ]
+      }
+    ],
+    "trial_190": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.87,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.81,
+        "imbalance_types": [
+          "duplicated_scope",
+          "blocked_dependency"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.86,
+        "imbalance_types": [
+          "duplicated_scope",
+          "blocked_dependency",
+          "role_action_mismatch"
+        ]
+      }
+    ],
+    "trial_202": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.91,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.96,
+        "imbalance_types": [
+          "blocked_dependency",
+          "failed_handoff"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.84,
+        "imbalance_types": []
+      }
+    ],
+    "trial_208": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.9,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.94,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.94,
+        "imbalance_types": []
+      }
+    ],
+    "trial_212": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.94,
+        "imbalance_types": [
+          "workload_concentration",
+          "blocked_dependency",
+          "failed_handoff"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.97,
+        "imbalance_types": [
+          "workload_concentration",
+          "blocked_dependency",
+          "failed_handoff"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.94,
+        "imbalance_types": [
+          "blocked_dependency",
+          "failed_handoff"
+        ]
+      }
+    ],
+    "trial_229": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.72,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.9,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.87,
+        "imbalance_types": []
+      }
+    ],
+    "trial_230": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.96,
+        "imbalance_types": [
+          "workload_concentration",
+          "blocked_dependency",
+          "failed_handoff"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.95,
+        "imbalance_types": [
+          "blocked_dependency",
+          "failed_handoff",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.96,
+        "imbalance_types": [
+          "blocked_dependency",
+          "failed_handoff"
+        ]
+      }
+    ],
+    "trial_243": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.94,
+        "imbalance_types": [
+          "workload_concentration",
+          "blocked_dependency",
+          "failed_handoff"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.91,
+        "imbalance_types": [
+          "blocked_dependency",
+          "failed_handoff",
+          "role_action_mismatch"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.97,
+        "imbalance_types": [
+          "failed_handoff",
+          "blocked_dependency",
+          "role_action_mismatch"
+        ]
+      }
+    ],
+    "trial_255": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.94,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.94,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.94,
+        "imbalance_types": []
+      }
+    ],
+    "trial_257": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.78,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.88,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.88,
+        "imbalance_types": [
+          "workload_concentration",
+          "failed_handoff"
+        ]
+      }
+    ],
+    "trial_258": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.84,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.88,
+        "imbalance_types": [
+          "duplicated_scope"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "imbalance_detected",
+        "confidence": 0.94,
+        "imbalance_types": [
+          "blocked_dependency",
+          "failed_handoff"
+        ]
+      }
+    ],
+    "trial_279": [
+      {
+        "fraction": 0.25,
+        "verdict": "imbalance_detected",
+        "confidence": 0.86,
+        "imbalance_types": [
+          "workload_concentration",
+          "blocked_dependency"
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.84,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.9,
+        "imbalance_types": []
+      }
+    ],
+    "trial_286": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.72,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "imbalance_detected",
+        "confidence": 0.82,
+        "imbalance_types": [
+          "blocked_dependency"
+        ]
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.9,
+        "imbalance_types": []
+      }
+    ],
+    "trial_297": [
+      {
+        "fraction": 0.25,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.96,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.5,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.88,
+        "imbalance_types": []
+      },
+      {
+        "fraction": 0.75,
+        "verdict": "no_imbalance_observed",
+        "confidence": 0.94,
+        "imbalance_types": []
+      }
+    ]
+  },
+  "model_results_table": "/home/ubuntu/Desktop/Multiagent-Minecraft/experiments/analysis/online_critic/derived/batch_24_v1/model_results.tsv",
+  "blind_packets": "/home/ubuntu/Desktop/Multiagent-Minecraft/experiments/analysis/online_critic/derived/batch_24_v1/blind_packets.jsonl",
+  "human_audit_table": "/home/ubuntu/Desktop/Multiagent-Minecraft/experiments/analysis/online_critic/derived/batch_24_v1/human_audit_blind.tsv"
+}

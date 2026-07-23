@@ -1,0 +1,78 @@
+{
+  "schema_version": "event_lease_calibration.v1",
+  "source_manifest": "experiments/analysis/online_critic/batch_24_manifest.json",
+  "excluded_evaluation_trials": [
+    "trial_106",
+    "trial_162"
+  ],
+  "calibration_trials": 22,
+  "domains": {
+    "construction": {
+      "trial_count": 10,
+      "trial_ids": [
+        "trial_104",
+        "trial_107",
+        "trial_126",
+        "trial_132",
+        "trial_149",
+        "trial_158",
+        "trial_179",
+        "trial_181",
+        "trial_186",
+        "trial_190"
+      ],
+      "completed_new_action_count": 83,
+      "new_action_duration_s": {
+        "p50": 75.781,
+        "p80": 134.102,
+        "p90": 167.953,
+        "max": 285.846
+      },
+      "positive_score_gap_s": {
+        "count": 1235,
+        "p90": 1.721,
+        "p95": 2.401
+      }
+    },
+    "crafting": {
+      "trial_count": 12,
+      "trial_ids": [
+        "trial_202",
+        "trial_208",
+        "trial_212",
+        "trial_229",
+        "trial_230",
+        "trial_243",
+        "trial_255",
+        "trial_257",
+        "trial_258",
+        "trial_279",
+        "trial_286",
+        "trial_297"
+      ],
+      "completed_new_action_count": 0,
+      "new_action_duration_s": {
+        "p50": null,
+        "p80": null,
+        "p90": null,
+        "max": null
+      },
+      "positive_score_gap_s": {
+        "count": 0,
+        "p90": null,
+        "p95": null
+      }
+    }
+  },
+  "frozen_pilot_policy": {
+    "action_lease_s": 135,
+    "action_lease_basis": "Rounded-up held-out construction !newAction duration p80.",
+    "request_ack_lease_s": 20,
+    "request_attempt_lease_s": 30,
+    "request_result_lease_s": 60,
+    "watchdog_interval_s": 120,
+    "min_trigger_gap_s": 20,
+    "prespecified_parameter_note": "Request, watchdog, and cooldown values are pilot parameters, not fitted accuracy optima."
+  },
+  "evidence_boundary": "The evaluated trial durations are excluded. A live action never uses its own eventual duration."
+}

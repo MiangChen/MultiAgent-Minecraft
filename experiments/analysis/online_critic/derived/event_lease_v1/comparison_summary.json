@@ -1,0 +1,270 @@
+{
+  "schema_version": "event_lease_trigger_ab.v1",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "evaluation_trials": [
+    "trial_106",
+    "trial_162"
+  ],
+  "failed_model_calls": [],
+  "causal_integrity": {
+    "checked_snapshots": 12,
+    "violations": []
+  },
+  "policies": {
+    "fixed_25_50_75": {
+      "snapshots": 6,
+      "successful_model_calls": 6,
+      "terminal_snapshots": 0,
+      "nonterminal_snapshots": 6,
+      "advisories_sent": 3,
+      "verdict_counts": {
+        "imbalance_detected": 3,
+        "no_imbalance_observed": 3
+      },
+      "per_trial": {
+        "trial_106": {
+          "snapshots": 3,
+          "advisories_sent": 2,
+          "cutoffs_s": [
+            73.693,
+            147.386,
+            221.079
+          ]
+        },
+        "trial_162": {
+          "snapshots": 3,
+          "advisories_sent": 1,
+          "cutoffs_s": [
+            126.755,
+            253.511,
+            380.267
+          ]
+        }
+      }
+    },
+    "event_leases_v1": {
+      "snapshots": 6,
+      "successful_model_calls": 6,
+      "terminal_snapshots": 2,
+      "nonterminal_snapshots": 4,
+      "advisories_sent": 4,
+      "verdict_counts": {
+        "imbalance_detected": 4,
+        "no_imbalance_observed": 2
+      },
+      "per_trial": {
+        "trial_106": {
+          "snapshots": 1,
+          "advisories_sent": 0,
+          "cutoffs_s": [
+            294.772
+          ]
+        },
+        "trial_162": {
+          "snapshots": 5,
+          "advisories_sent": 4,
+          "cutoffs_s": [
+            210.448,
+            263.956,
+            304.221,
+            380.108,
+            507.022
+          ]
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "policy": "fixed_25_50_75",
+      "trial_id": "trial_106",
+      "cutoff_s": 73.693,
+      "trigger_reason": "time_interval",
+      "candidate_types": [],
+      "verdict": "imbalance_detected",
+      "confidence": 0.9,
+      "imbalance_types": [
+        "duplicated_scope"
+      ],
+      "send": true,
+      "priority": "rebalance",
+      "advisory": "Split by inventory now: Andy should own all granite/andesite/diorite/stone/stone-brick coordinates; Bob should stop overlapping masonry work and own gold, quartz, pillars, and glowstone. Confirm the split before further placement."
+    },
+    {
+      "policy": "fixed_25_50_75",
+      "trial_id": "trial_106",
+      "cutoff_s": 147.386,
+      "trigger_reason": "time_interval",
+      "candidate_types": [],
+      "verdict": "no_imbalance_observed",
+      "confidence": 0.82,
+      "imbalance_types": [],
+      "send": false,
+      "priority": "none",
+      "advisory": ""
+    },
+    {
+      "policy": "fixed_25_50_75",
+      "trial_id": "trial_106",
+      "cutoff_s": 221.079,
+      "trigger_reason": "time_interval",
+      "candidate_types": [],
+      "verdict": "imbalance_detected",
+      "confidence": 0.87,
+      "imbalance_types": [
+        "duplicated_scope",
+        "role_action_mismatch"
+      ],
+      "send": true,
+      "priority": "rebalance",
+      "advisory": "Keep Andy from starting another full-finish action while Bob is active. Have Bob exclusively place the remaining quartz_block/quartz_pillar from his inventory; after Bob ends, Andy should check the blueprint and handle only listed stone or stone_bricks leftovers."
+    },
+    {
+      "policy": "event_leases_v1",
+      "trial_id": "trial_106",
+      "cutoff_s": 294.772,
+      "trigger_reason": "trial_end",
+      "candidate_types": [
+        "terminal_review"
+      ],
+      "verdict": "no_imbalance_observed",
+      "confidence": 0.95,
+      "imbalance_types": [],
+      "send": false,
+      "priority": "none",
+      "advisory": ""
+    },
+    {
+      "policy": "fixed_25_50_75",
+      "trial_id": "trial_162",
+      "cutoff_s": 126.755,
+      "trigger_reason": "time_interval",
+      "candidate_types": [],
+      "verdict": "no_imbalance_observed",
+      "confidence": 0.84,
+      "imbalance_types": [],
+      "send": false,
+      "priority": "none",
+      "advisory": ""
+    },
+    {
+      "policy": "event_leases_v1",
+      "trial_id": "trial_162",
+      "cutoff_s": 210.448,
+      "trigger_reason": "action_closed_without_verified_progress",
+      "candidate_types": [
+        "action_closed_without_verified_progress"
+      ],
+      "verdict": "imbalance_detected",
+      "confidence": 0.78,
+      "imbalance_types": [
+        "duplicated_scope"
+      ],
+      "send": true,
+      "priority": "rebalance",
+      "advisory": "Before Andy starts another broad build, have him run checkBlueprint and report the remaining list. Split leftovers explicitly: Andy owns stone/stone_bricks/polished variants; Bob owns gold/quartz/quartz_pillar/glowstone. Avoid overlapping all-material actions."
+    },
+    {
+      "policy": "fixed_25_50_75",
+      "trial_id": "trial_162",
+      "cutoff_s": 253.511,
+      "trigger_reason": "time_interval",
+      "candidate_types": [],
+      "verdict": "imbalance_detected",
+      "confidence": 0.77,
+      "imbalance_types": [
+        "blocked_dependency",
+        "role_action_mismatch"
+      ],
+      "send": true,
+      "priority": "unblock",
+      "advisory": "Split the remaining work now: Bob, place your held gold, quartz blocks/pillars, and glowstone at the missing coordinates. Andy, gather/craft the depleted stone and polished variants. Then run one shared blueprint check and exchange the exact leftovers."
+    },
+    {
+      "policy": "event_leases_v1",
+      "trial_id": "trial_162",
+      "cutoff_s": 263.956,
+      "trigger_reason": "request_verification_still_unresolved",
+      "candidate_types": [
+        "request_verification_still_unresolved"
+      ],
+      "verdict": "imbalance_detected",
+      "confidence": 0.89,
+      "imbalance_types": [
+        "blocked_dependency",
+        "failed_handoff"
+      ],
+      "send": true,
+      "priority": "unblock",
+      "advisory": "Bob: start a recorded build action now using your gold, quartz, pillars, and glowstone. If you cannot complete it, transfer those materials to Andy and report the blocker. Andy should avoid duplicate placement until Bob confirms which scope he actually started."
+    },
+    {
+      "policy": "event_leases_v1",
+      "trial_id": "trial_162",
+      "cutoff_s": 304.221,
+      "trigger_reason": "action_closed_without_verified_progress",
+      "candidate_types": [
+        "action_closed_without_verified_progress"
+      ],
+      "verdict": "imbalance_detected",
+      "confidence": 0.88,
+      "imbalance_types": [
+        "workload_concentration",
+        "idle_while_peer_overloaded",
+        "failed_handoff",
+        "role_action_mismatch"
+      ],
+      "send": true,
+      "priority": "rebalance",
+      "advisory": "Assign Bob now to place the required gold, quartz, quartz-pillar, and glowstone blocks from his inventory and report completion. Have Andy handle stone variants and run the blueprint check afterward; confirm Bob actually starts before Andy retries the full scope."
+    },
+    {
+      "policy": "event_leases_v1",
+      "trial_id": "trial_162",
+      "cutoff_s": 380.108,
+      "trigger_reason": "score_regression",
+      "candidate_types": [
+        "score_regression"
+      ],
+      "verdict": "imbalance_detected",
+      "confidence": 0.82,
+      "imbalance_types": [
+        "workload_concentration",
+        "failed_handoff"
+      ],
+      "send": true,
+      "priority": "rebalance",
+      "advisory": "Bob: avoid editing Andy's current coordinate batch. Once Andy finishes, immediately run an independent blueprint check and take ownership of any listed leftovers using your gold, quartz, pillar, and glowstone stock; report the result to Andy."
+    },
+    {
+      "policy": "fixed_25_50_75",
+      "trial_id": "trial_162",
+      "cutoff_s": 380.267,
+      "trigger_reason": "time_interval",
+      "candidate_types": [],
+      "verdict": "no_imbalance_observed",
+      "confidence": 0.72,
+      "imbalance_types": [],
+      "send": false,
+      "priority": "none",
+      "advisory": ""
+    },
+    {
+      "policy": "event_leases_v1",
+      "trial_id": "trial_162",
+      "cutoff_s": 507.022,
+      "trigger_reason": "trial_end",
+      "candidate_types": [
+        "terminal_review"
+      ],
+      "verdict": "no_imbalance_observed",
+      "confidence": 0.97,
+      "imbalance_types": [],
+      "send": false,
+      "priority": "none",
+      "advisory": ""
+    }
+  ],
+  "interpretation_boundary": "Model advisories are not accuracy labels. Trigger quality still requires human audit, and shadow replay cannot estimate intervention effects."
+}

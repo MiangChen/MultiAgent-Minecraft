@@ -55,6 +55,8 @@ node experiments/scripts/god_camera.mjs --username watcher --out <dir>          
 node experiments/scripts/god_camera.mjs --username watcher --follow andy --offset 8,7,8  # 第三人称跟随
 ```
 
+在线 critic 可作为 replay 的只读旁路运行：`--critic` 与画面回放共用时间轴，`--critic-only` 则无需 Minecraft 服务端即可做历史轨迹的因果在线模拟。实现、参数和证据边界见 `analysis/online_critic/README.md`。
+
 回放机制：傀儡 bot 以原名登录（关闭客户端物理），pose→`/tp @s`+`bot.look`，block→director `/setblock`（air 时最近傀儡挥臂），chat→傀儡原文发言（`/` 开头跳过）。前置检查拒绝与真身同时运行。
 
 ## 已知边界
